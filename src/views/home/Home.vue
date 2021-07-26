@@ -12,7 +12,7 @@
 import NavBar from "components/common/navbar/NavBar";
 import HomeSwiper from "@/views/home/childComps/HomeSwiper";
 import HomeRecommendView from "@/views/home/childComps/HomeRecommendView";
-import {getHomeMultidata} from "network/home";
+import {getHomeMultidata} from "@/network/home";
 
 
 export default {
