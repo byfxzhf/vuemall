@@ -1,7 +1,11 @@
 <template>
-<div id="tabControl">
-
-</div>
+  <div class="tab-control">
+    <!--因为需求上看这里只是字不一样所以并没有使用插槽-->
+    <div v-for="(item,index) in titles" class="tab-control-item" :class="{active:index==currentIndex}"
+    @click="itemClick(index)">
+      <span>{{item}}</span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -10,14 +14,47 @@ export default {
   props:{
     titles:{
       type:Array,
-      default():{
+      default(){
         return []
       }
+    }
+  },
+  data(){
+    return{
+      currentIndex:0
+    }
+  },
+  methods:{
+    itemClick(index){
+      this.currentIndex=index
     }
   }
 }
 </script>
 
 <style scoped>
+.tab-control{
+  display: flex;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 15px;
+  background: #fff;
+}
 
+.tab-control-item{
+  flex: 1;
+}
+
+.tab-control-item span {
+  padding: 5px;
+}
+
+.active {
+
+  color: var(--color-high-text);
+}
+.active span{
+  border-bottom: 2px solid var(--color-tint);
+}
 </style>
